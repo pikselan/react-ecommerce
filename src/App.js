@@ -1,25 +1,20 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import Landing from "./pages/Landing";
+import NotFound from "./pages/NotFound";
 
 import "./assets/js/index";
-import "./assets/scss/styles.scss";
+import "./styles.scss";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
   );
 }
 
