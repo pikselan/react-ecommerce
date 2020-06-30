@@ -28,7 +28,7 @@ export default function Landing() {
                     </p>
                     <Button
                       type="link"
-                      href="/cart"
+                      href="/item"
                       className="btn-primary btn-lg px-4 h4"
                     >
                       BUY IT!
@@ -156,7 +156,7 @@ export default function Landing() {
                     </p>
                     <Button
                       type="link"
-                      href="/cart"
+                      href="/item"
                       className="btn-primary px-4 mb-5"
                     >
                       BUY IT!

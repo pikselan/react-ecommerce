@@ -56,10 +56,7 @@ export default function About() {
                   possibility to fall out when opening. The golden zip creates
                   an additional detail to the elegance of the montage backpack.
                 </p>
-                <p className="font-weight-bold">
-                  {" "}
-                  MONTAGE &amp; sustainability
-                </p>
+                <p className="font-weight-bold">MONTAGE &amp; sustainability</p>
                 <p>
                   MONTAGE backpack is made of premium polished cork, which makes
                   it very soft and resilient, just like the leather. It is a

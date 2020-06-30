@@ -145,3 +145,16 @@ h2 {
     bottom: 5px;
   }
 }
+
+.btn-color,
+.btn-qty {
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.input-qty {
+  border-radius: 0;
+  width: 70px !important;
+}
