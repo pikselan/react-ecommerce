@@ -13,7 +13,7 @@ export default function Landing() {
       <div className="navigation container p-0">
         <nav className="navbar navbar-light bg-white justify-content-between mt-sm-0 mt-lg-3">
           <Link className="navbar-brand mr-auto" to="/">
-            <img src={Logo} alt="Logo" />
+            <img src={Logo} alt="Logo" height="50px" />
           </Link>
           <Link className="mr-4" to="/">
             <img src={IcAbout} alt="Icon About" />
@@ -182,7 +182,7 @@ export default function Landing() {
             style={{
               maxHeight: "662px",
               background:
-                "linear-gradient(0deg, rgba(255, 255, 255, 0.55), rgba(183, 219, 220, 0.3)), url(/assets/images/hero-image.png)",
+                "linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.7)), url(/assets/images/hero-image.png)",
               backgroundRepeat: "no-repeat",
               backgroundSize: "contain",
               backgroundPosition: "right bottom",
@@ -227,14 +227,14 @@ export default function Landing() {
         </div>
         <div className="content container">
           <div className="row">
-            <div className="col-7">
+            <div className="col-12 mb-3">
               <div className="d-flex justify-content-start">
                 <img src="/assets/images/image1.gif" alt="" />
                 <div className="box-right bg-primary position-absolute"></div>
               </div>
             </div>
-            <div className="col-5">
-              <h1 className="font-weight-bold">Versatility &amp; Comfort</h1>
+            <div className="col-12">
+              <h1 className="h5 font-weight-bold">Versatility &amp; Comfort</h1>
               <p>
                 Montage is cleverly constructed for you to be able to hang it
                 over your shoulders as a backpack or carry it around like a
@@ -250,8 +250,16 @@ export default function Landing() {
         </div>
         <div className="content container">
           <div className="row">
-            <div className="col-5">
-              <h1 className="font-weight-bold">Organization &amp; Details</h1>
+            <div className="col-12 mb-3">
+              <div className="d-flex justify-content-end">
+                <img src="/assets/images/image2.gif" alt="" />
+                <div className="box-left bg-primary position-absolute"></div>
+              </div>
+            </div>
+            <div className="col-12">
+              <h1 className="h5 font-weight-bold">
+                Organization &amp; Details
+              </h1>
               <p>
                 MONTAGE bag will adapt to your everyday lifestyle with its
                 cleverly located pockets and stylish design. We spent 14 months,
@@ -265,24 +273,18 @@ export default function Landing() {
                 organize your treasures and access them easily.
               </p>
             </div>
-            <div className="col-7">
-              <div className="d-flex justify-content-end">
-                <img src="/assets/images/image2.gif" alt="" />
-                <div className="box-left bg-primary position-absolute"></div>
-              </div>
-            </div>
           </div>
         </div>
         <div className="content container">
           <div className="row">
-            <div className="col-7">
+            <div className="col-12 mb-3">
               <div className="d-flex justify-content-start">
                 <img src="/assets/images/image3.gif" alt="" />
                 <div className="box-right bg-primary position-absolute"></div>
               </div>
             </div>
-            <div className="col-5">
-              <h1 className="font-weight-bold">Easy Access</h1>
+            <div className="col-12">
+              <h1 className="h5 font-weight-bold">Easy Access</h1>
               <p>
                 it’s a stylish bag that looks beautiful on the outside with
                 quick access pockets. However, we all know that it’s what’s
@@ -311,7 +313,7 @@ export default function Landing() {
                 type="link"
                 href="https://www.kickstarter.com/projects/montage/montage-designed-for-all-your-moments-of-life"
                 isExternal
-                className="btn-primary btn-lg font-weight-bold"
+                className="btn-primary font-weight-bold"
               >
                 View On Kickstarter
               </Button>

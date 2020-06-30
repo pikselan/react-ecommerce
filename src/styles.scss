@@ -63,38 +63,63 @@ h2 {
 }
 
 .variation {
-  margin-top: 200px;
+  margin-top: 50px;
   padding-top: 50px;
   padding-bottom: 50px;
+  @media screen and (min-width: 992px) {
+    margin-top: 200px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
   .box-left,
   .box-right {
-    height: 10vw;
-    width: 10vw;
-    max-height: 150px;
-    max-width: 150px;
     z-index: -50;
+    height: 50px;
+    width: 50px;
+    @media screen and (min-width: 992px) {
+      height: 10vw;
+      width: 10vw;
+      max-height: 150px;
+      max-width: 150px;
+    }
   }
   .box-left {
-    top: -50px;
+    top: -25px;
     left: 0;
+    @media screen and (min-width: 992px) {
+      top: -50px;
+    }
   }
   .box-right {
-    bottom: -50px;
+    bottom: -25px;
     right: 0;
+    @media screen and (min-width: 992px) {
+      bottom: -50px;
+    }
   }
 }
 
 .content {
-  margin-top: 150px;
+  margin-top: 50px;
+  @media screen and (min-width: 992px) {
+    margin-top: 150px;
+  }
   img {
-    width: 100%;
+    width: 90%;
+    @media screen and (min-width: 992px) {
+      width: 100%;
+    }
     max-width: 579px;
   }
   .box-left,
   .box-right {
-    height: 150px;
-    width: 150px;
+    height: 50px;
+    width: 50px;
     z-index: -50;
+    @media screen and (min-width: 992px) {
+      height: 150px;
+      width: 150px;
+    }
   }
   .box-left {
     top: 50px;
@@ -107,8 +132,12 @@ h2 {
 }
 
 .footer {
-  margin-top: 150px;
+  margin-top: 50px;
   height: 60vh;
+  @media screen and (min-width: 992px) {
+    margin-top: 150px;
+    height: 60vh;
+  }
   .btn {
     margin-top: 20vh;
   }
