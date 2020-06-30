@@ -52,6 +52,7 @@ export default function Item() {
                               type="number"
                               className="input-qty form-control input-sm mx-2"
                               value="0"
+                              onChange={() => null}
                             />
                             <Button className="btn-qty btn-dark btn-sm">
                               +
