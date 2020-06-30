@@ -72,6 +72,34 @@ h2 {
   }
 }
 
+.content {
+  margin-top: 150px;
+  img {
+    max-width: 579px;
+  }
+  .box-left,
+  .box-right {
+    height: 150px;
+    width: 150px;
+    z-index: -50;
+  }
+  .box-left {
+    top: 50px;
+    left: 20px;
+  }
+  .box-right {
+    top: 50px;
+    right: 20px;
+  }
+}
+
 .footer {
-  min-height: 564px;
+  margin-top: 150px;
+  height: 60vh;
+  .btn {
+    margin-top: 20vh;
+  }
+  .copyright {
+    bottom: 10px;
+  }
 }

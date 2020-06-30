@@ -44,7 +44,7 @@ export default function Landing() {
                   <Button
                     type="link"
                     href="/cart"
-                    className="btn-primary btn-lg px-4"
+                    className="btn-primary btn-lg px-4 h4"
                   >
                     BUY IT!
                   </Button>
@@ -68,29 +68,98 @@ export default function Landing() {
       </div>
       <div className="content container">
         <div className="row">
-          <div className="col-7">Image</div>
-          <div className="col-5">Text</div>
+          <div className="col-7">
+            <div className="d-flex justify-content-start">
+              <img src="/assets/images/image1.gif" alt="" />
+              <div className="box-right bg-primary position-absolute"></div>
+            </div>
+          </div>
+          <div className="col-5">
+            <h1 className="font-weight-bold">Versatility &amp; Comfort</h1>
+            <p>
+              Montage is cleverly constructed for you to be able to hang it over
+              your shoulders as a backpack or carry it around like a handbag or
+              tote bag. In just a matter of seconds, you can easily adjust the
+              bag straps to suit your own lifestyle, effortlessly!
+            </p>
+            <p className="font-italic">
+              A slim and adaptable shape is designed to flatter the small
+              silhouette!
+            </p>
+          </div>
         </div>
       </div>
       <div className="content container">
         <div className="row">
-          <div className="col-5">Text</div>
-          <div className="col-7">Image</div>
+          <div className="col-5">
+            <h1 className="font-weight-bold">Organization &amp; Details</h1>
+            <p>
+              MONTAGE bag will adapt to your everyday lifestyle with its
+              cleverly located pockets and stylish design. We spent 14 months,
+              designing and redesigning the perfect bag with women in mind
+              first. Whether you are a professional or a student, an adventurer
+              or a traveler, a commuter or a freelancer Montage Bag was made for
+              you.
+            </p>
+            <p className="font-italic">
+              Thoughtfully designed interior details will allow you to organize
+              your treasures and access them easily.
+            </p>
+          </div>
+          <div className="col-7">
+            <div className="d-flex justify-content-end">
+              <img src="/assets/images/image2.gif" alt="" />
+              <div className="box-left bg-primary position-absolute"></div>
+            </div>
+          </div>
         </div>
       </div>
       <div className="content container">
         <div className="row">
-          <div className="col-7">Image</div>
-          <div className="col-5">Text</div>
+          <div className="col-7">
+            <div className="d-flex justify-content-start">
+              <img src="/assets/images/image3.gif" alt="" />
+              <div className="box-right bg-primary position-absolute"></div>
+            </div>
+          </div>
+          <div className="col-5">
+            <h1 className="font-weight-bold">Easy Access</h1>
+            <p>
+              it’s a stylish bag that looks beautiful on the outside with quick
+              access pockets. However, we all know that it’s what’s inside that
+              counts. Open the bag’s double zipper pulls to find multiple
+              compartments, interior pockets and specially designed slots for
+              all of your essentials. Slip in your laptop, secure your water
+              bottle and safely store your passport while keeping all your
+              belongings well-organized. No more digging through a bag!
+            </p>
+          </div>
         </div>
       </div>
       <div
         className="footer container-fluid"
         style={{
-          background: "url(/assets/images/bg-footer.jpg) no-repeat cover",
+          backgroundImage: "url(/assets/images/bg-footer.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center bottom",
         }}
       >
-        footer
+        <div className="col-12 h-100">
+          <div className="middle">
+            <Button
+              type="link"
+              href="https://www.kickstarter.com/projects/montage/montage-designed-for-all-your-moments-of-life"
+              isExternal
+              className="btn-primary btn-lg font-weight-bold"
+            >
+              View On Kickstarter
+            </Button>
+            <span className="copyright position-absolute text-white">
+              Montage, © 2020
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );
