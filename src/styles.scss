@@ -39,6 +39,7 @@
 html,
 body {
   font-family: "Noto Sans", sans-serif;
+  overflow-x: hidden;
 }
 
 h1,
@@ -52,14 +53,25 @@ h2 {
   align-items: center;
 }
 
+.hero {
+  .hero-img {
+    overflow-x: hidden;
+  }
+  .hero-bg::after {
+    opacity: 0.5;
+  }
+}
+
 .variation {
   margin-top: 200px;
   padding-top: 50px;
   padding-bottom: 50px;
   .box-left,
   .box-right {
-    height: 150px;
-    width: 150px;
+    height: 10vw;
+    width: 10vw;
+    max-height: 150px;
+    max-width: 150px;
     z-index: -50;
   }
   .box-left {
@@ -75,6 +87,7 @@ h2 {
 .content {
   margin-top: 150px;
   img {
+    width: 100%;
     max-width: 579px;
   }
   .box-left,
@@ -100,6 +113,6 @@ h2 {
     margin-top: 20vh;
   }
   .copyright {
-    bottom: 10px;
+    bottom: 5px;
   }
 }
