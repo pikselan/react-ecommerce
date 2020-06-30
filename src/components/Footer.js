@@ -20,6 +20,7 @@ export default function Footer(props) {
             href="https://www.kickstarter.com/projects/montage/montage-designed-for-all-your-moments-of-life"
             isExternal
             className="btn-primary btn-lg font-weight-bold"
+            target="_blank"
           >
             View On Kickstarter
           </Button>

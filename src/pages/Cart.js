@@ -100,7 +100,6 @@ export default function Cart(props) {
                       name="shippingMethod"
                       id="dhlExpress"
                       value="DHL Express"
-                      checked
                     />
                     <label className="form-check-label" htmlFor="dhlExpress">
                       DHL Express ($19.95)
