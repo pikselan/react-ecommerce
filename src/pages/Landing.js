@@ -1,31 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import Button from "../components/Button";
-
-import Logo from "../assets/images/logo.png";
-import IcAbout from "../assets/images/ic-about.svg";
-import IcCart from "../assets/images/ic-cart.svg";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Landing() {
   return (
     <div className="container-fluid p-0">
-      <div className="navigation container p-0">
-        <nav className="navbar navbar-light bg-white justify-content-between mt-sm-0 mt-lg-3">
-          <Link className="navbar-brand mr-auto" to="/">
-            <img src={Logo} alt="Logo" height="50px" />
-          </Link>
-          <Link className="mr-4" to="/">
-            <img src={IcAbout} alt="Icon About" />
-          </Link>
-          <Link className="mr-3" to="/">
-            <img src={IcCart} alt="Icon Cart" />
-            <span className="badge badge-pill badge-secondary position-absolute">
-              0
-            </span>
-          </Link>
-        </nav>
-      </div>
+      <Header />
 
       {/* for desktop */}
       <div className="d-none d-lg-block">
@@ -143,31 +125,6 @@ export default function Landing() {
                 all your belongings well-organized. No more digging through a
                 bag!
               </p>
-            </div>
-          </div>
-        </div>
-        <div
-          className="footer container-fluid"
-          style={{
-            backgroundImage: "url(/assets/images/bg-footer.jpg)",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center bottom",
-          }}
-        >
-          <div className="col-12 h-100">
-            <div className="middle">
-              <Button
-                type="link"
-                href="https://www.kickstarter.com/projects/montage/montage-designed-for-all-your-moments-of-life"
-                isExternal
-                className="btn-primary btn-lg font-weight-bold"
-              >
-                View On Kickstarter
-              </Button>
-              <span className="copyright position-absolute text-white">
-                Montage, © 2020
-              </span>
             </div>
           </div>
         </div>
@@ -298,32 +255,8 @@ export default function Landing() {
             </div>
           </div>
         </div>
-        <div
-          className="footer container-fluid"
-          style={{
-            backgroundImage: "url(/assets/images/bg-footer.jpg)",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center bottom",
-          }}
-        >
-          <div className="col-12 h-100">
-            <div className="middle">
-              <Button
-                type="link"
-                href="https://www.kickstarter.com/projects/montage/montage-designed-for-all-your-moments-of-life"
-                isExternal
-                className="btn-primary font-weight-bold"
-              >
-                View On Kickstarter
-              </Button>
-              <span className="copyright position-absolute text-white">
-                Montage, © 2020
-              </span>
-            </div>
-          </div>
-        </div>
       </div>
+      <Footer />
     </div>
   );
 }
