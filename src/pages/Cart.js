@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import Fade from "react-reveal/Fade";
+
+import { store } from "../store";
 
 import Button from "../components/Button";
 import Header from "../components/Header";
@@ -7,11 +9,14 @@ import Footer from "../components/Footer";
 
 import Paypal from "../assets/images/paypal.png";
 
-export default function Cart(props) {
-  const item = props.item;
-  if (item === 0) {
+export default function Cart() {
+  const globalState = useContext(store);
+  const { dispatch } = globalState;
+  const state = globalState.state;
+
+  if (state.cart === 0) {
     return (
-      <div className="container-fluid p-0">
+      <div className="container-fluid p-0" style={{ height: "80vh" }}>
         <Header />
         <div className="hero container-fluid p-0">
           <Fade bottom delay={200}>
@@ -19,7 +24,7 @@ export default function Cart(props) {
             <div className="container text-center">
               <h1>Please add item before checkout</h1>
               <Button type="link" href="/item" className="btn-primary mt-3">
-                To Item
+                Add Item
               </Button>
             </div>
           </Fade>
