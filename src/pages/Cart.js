@@ -1,13 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Fade from "react-reveal/Fade";
+import { PayPalButton } from "react-paypal-button-v2";
 
 import { store } from "../store";
 
 import Button from "../components/Button";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
-import Paypal from "../assets/images/paypal.png";
 
 export default function Cart() {
   const globalState = useContext(store);
@@ -23,10 +22,20 @@ export default function Cart() {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");
-  const [postalCode, setPostalCode] = useState(0);
+  const [postalCode, setPostalCode] = useState("");
   const [country, setCountry] = useState("");
-  const [phone, setPhone] = useState(0);
+  const [phone, setPhone] = useState("");
   const [shipping, setShipping] = useState(0);
+
+  const [totalAmount, setTotalAmount] = useState(0);
+
+  const paymentHandler = (details, data) => {
+    console.log(details, data);
+  };
+
+  useEffect(() => {
+    setTotalAmount(state.priceItem * state.cart + shipping);
+  }, [state.priceItem, state.cart, shipping]);
 
   if (state.cart === 0 || state.color === "") {
     return (
@@ -67,55 +76,109 @@ export default function Cart() {
                   <div className="col-12">
                     <div className="full-input">
                       <label>Email</label>
-                      <input type="text" name="email" required />
+                      <input
+                        type="text"
+                        name="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                      />
                     </div>
                   </div>
                   <div className="col-6">
                     <div className="full-input">
                       <label>First Name</label>
-                      <input type="text" name="firstName" required />
+                      <input
+                        type="text"
+                        name="firstName"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        required
+                      />
                     </div>
                   </div>
                   <div className="col-6">
                     <div className="full-input">
                       <label>Last Name</label>
-                      <input type="text" name="lastName" required />
+                      <input
+                        type="text"
+                        name="lastName"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                        required
+                      />
                     </div>
                   </div>
                   <div className="col-12">
                     <div className="full-input">
                       <label>Address</label>
-                      <input type="text" name="address" required />
+                      <input
+                        type="text"
+                        name="address"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                        required
+                      />
                     </div>
                   </div>
                   <div className="col-12">
                     <div className="full-input">
                       <label>City</label>
-                      <input type="text" name="city" required />
+                      <input
+                        type="text"
+                        name="city"
+                        value={city}
+                        onChange={(e) => setCity(e.target.value)}
+                        required
+                      />
                     </div>
                   </div>
                   <div className="col-6">
                     <div className="full-input">
                       <label>Province</label>
-                      <input type="text" name="province" required />
+                      <input
+                        type="text"
+                        name="province"
+                        value={province}
+                        onChange={(e) => setProvince(e.target.value)}
+                        required
+                      />
                     </div>
                   </div>
                   <div className="col-6">
                     <div className="full-input">
                       <label>Postal Code</label>
-                      <input type="text" name="postalCode" required />
+                      <input
+                        type="text"
+                        name="postalCode"
+                        value={postalCode}
+                        onChange={(e) => setPostalCode(e.target.value)}
+                        required
+                      />
                     </div>
                   </div>
                   <div className="col-12">
                     <div className="full-input">
                       <label>Country/Region</label>
-                      <input type="text" name="country" required />
+                      <input
+                        type="text"
+                        name="country"
+                        value={country}
+                        onChange={(e) => setCountry(e.target.value)}
+                        required
+                      />
                     </div>
                   </div>
                   <div className="col-12">
                     <div className="full-input">
                       <label>Phone</label>
-                      <input type="text" name="phone" required />
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        required
+                      />
                     </div>
                   </div>
                 </div>
@@ -179,19 +242,25 @@ export default function Cart() {
                       <span className="text-right h4 mt-3">
                         Total
                         <br />
-                        <b>${state.priceItem * state.cart + shipping} USD</b>
+                        <b>${totalAmount} USD</b>
                       </span>
                     </div>
                   </div>
                 </div>
-
                 <h2 className="mt-3 h4 font-weight-bold">Payment</h2>
-                <p>
-                  Express checkout
-                  <Button className="btn-outline-info ml-3" isDisabled>
+                Express checkout
+                {/* <Button className="btn-outline-info ml-3" isDisabled>
                     <img src={Paypal} alt="" />
-                  </Button>
-                </p>
+                  </Button> */}
+                <PayPalButton
+                  amount={totalAmount}
+                  currency={"USD"}
+                  onSuccess={paymentHandler}
+                  options={{
+                    clientId:
+                      "AeeYS4qirUDQhkveMHIjWZN-lKRq-6xy_hDMxDTQH0fXLTmvuxwNJgaGRdQRDnNoMk6vhRyTA5uld_-9",
+                  }}
+                />
               </div>
             </Fade>
           </div>
