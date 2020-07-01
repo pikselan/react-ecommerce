@@ -11,6 +11,12 @@ const { Provider } = store;
 const StateProvider = ({ children }) => {
   const [state, dispatch] = useReducer((state, action) => {
     switch (action.type) {
+      case "reset":
+        return {
+          cart: 0,
+          color: "",
+          priceItem: 209,
+        };
       case "upCart":
         return {
           ...state,

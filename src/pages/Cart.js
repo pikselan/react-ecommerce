@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import Fade from "react-reveal/Fade";
+import { useHistory } from "react-router-dom";
 import { PayPalButton } from "react-paypal-button-v2";
+import { toast } from "react-toastify";
 
 import { store } from "../store";
 
@@ -10,6 +12,7 @@ import Footer from "../components/Footer";
 
 export default function Cart() {
   const globalState = useContext(store);
+  const { dispatch } = globalState;
   const state = globalState.state;
 
   const shippingMethod = (item) => {
@@ -28,9 +31,35 @@ export default function Cart() {
   const [shipping, setShipping] = useState(0);
 
   const [totalAmount, setTotalAmount] = useState(0);
+  const fillForm =
+    email &&
+    firstName &&
+    lastName &&
+    address &&
+    city &&
+    province &&
+    postalCode &&
+    country &&
+    phone &&
+    shipping !== 0;
+
+  const history = useHistory();
 
   const paymentHandler = (details, data) => {
     console.log(details, data);
+    dispatch({
+      type: "reset",
+    });
+    toast.dark("Successful payment!", {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    history.push("/");
   };
 
   useEffect(() => {
@@ -249,18 +278,17 @@ export default function Cart() {
                 </div>
                 <h2 className="mt-3 h4 font-weight-bold">Payment</h2>
                 Express checkout
-                {/* <Button className="btn-outline-info ml-3" isDisabled>
-                    <img src={Paypal} alt="" />
-                  </Button> */}
-                <PayPalButton
-                  amount={totalAmount}
-                  currency={"USD"}
-                  onSuccess={paymentHandler}
-                  options={{
-                    clientId:
-                      "AeeYS4qirUDQhkveMHIjWZN-lKRq-6xy_hDMxDTQH0fXLTmvuxwNJgaGRdQRDnNoMk6vhRyTA5uld_-9",
-                  }}
-                />
+                <div className={`${fillForm ? " " : " d-none"}`}>
+                  <PayPalButton
+                    amount={totalAmount}
+                    currency={"USD"}
+                    onSuccess={paymentHandler}
+                    options={{
+                      clientId:
+                        "AY7PkZPK6i075bjGoIJvTgn_dHaWJsgAOb6-NWp_4IoH32zWbfRqskoZnegyFuOeKJnE3PTTEXnTjiYt",
+                    }}
+                  />
+                </div>
               </div>
             </Fade>
           </div>
