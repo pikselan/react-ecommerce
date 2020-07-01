@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import Fade from "react-reveal/Fade";
+
+import { store } from "../store";
 
 import Button from "../components/Button";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export default function Item() {
+  const globalState = useContext(store);
+  const { dispatch } = globalState;
+  const state = globalState.state;
+  const downCart = () => {
+    dispatch({ type: "downCart" });
+  };
+  const upCart = () => {
+    dispatch({ type: "upCart" });
+  };
+  const chooseColor = (color) => {
+    dispatch({
+      type: "chooseColor",
+      payload: {
+        color: color,
+      },
+    });
+  };
   return (
     <div className="container-fluid p-0">
       <Header />
@@ -37,28 +56,37 @@ export default function Item() {
                               <Button
                                 className="btn-color btn-sm"
                                 style={{ background: "#448A8D" }}
+                                onClick={() => chooseColor("green")}
                               ></Button>
                               <Button
                                 className="btn-color btn-sm"
                                 style={{ background: "#565055" }}
+                                onClick={() => chooseColor("black")}
                               ></Button>
                               <Button
                                 className="btn-color btn-sm"
                                 style={{ background: "#A8405E" }}
+                                onClick={() => chooseColor("red")}
                               ></Button>
                             </div>
                             <div className="form-inline mt-3">
                               <h6 className="font-weight-light mr-4">QTY.</h6>
-                              <Button className="btn-qty btn-dark btn-sm ml-2">
+                              <Button
+                                className="btn-qty btn-dark btn-sm ml-2"
+                                onClick={downCart}
+                              >
                                 -
                               </Button>
                               <input
                                 type="number"
                                 className="input-qty form-control input-sm mx-2"
-                                value="0"
+                                value={state.cart}
                                 onChange={() => null}
                               />
-                              <Button className="btn-qty btn-dark btn-sm">
+                              <Button
+                                className="btn-qty btn-dark btn-sm"
+                                onClick={upCart}
+                              >
                                 +
                               </Button>
                             </div>
