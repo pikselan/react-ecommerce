@@ -11,12 +11,15 @@ export default function Item() {
   const globalState = useContext(store);
   const { dispatch } = globalState;
   const state = globalState.state;
+
   const downCart = () => {
     dispatch({ type: "downCart" });
   };
+
   const upCart = () => {
     dispatch({ type: "upCart" });
   };
+
   const chooseColor = (color) => {
     dispatch({
       type: "chooseColor",
@@ -25,6 +28,7 @@ export default function Item() {
       },
     });
   };
+
   return (
     <div className="container-fluid p-0">
       <Header />
@@ -42,7 +46,7 @@ export default function Item() {
                     <div className="row">
                       <div className="col-md-4">
                         <img
-                          src="/assets/images/item-black.jpg"
+                          src={`/assets/images/item-${state.color}.jpg`}
                           alt=""
                           style={{ width: "100%" }}
                         />
@@ -95,7 +99,7 @@ export default function Item() {
                             <span className="text-right h4 mt-3">
                               Total
                               <br />
-                              <b>$209.00 USD</b>
+                              <b>${state.priceItem * state.cart}.00 USD</b>
                             </span>
                           </div>
                         </div>

@@ -1,6 +1,11 @@
 import React, { createContext, useReducer } from "react";
 
-const initialState = { cart: 0, color: "" };
+const initialState = {
+  cart: 0,
+  color: "",
+  priceItem: 209,
+  priceTotal: 0,
+};
 const store = createContext(initialState);
 const { Provider } = store;
 

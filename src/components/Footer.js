@@ -27,7 +27,7 @@ export default function Footer(props) {
               View On Kickstarter
             </Button>
             <span className="copyright position-absolute text-white">
-              Montage, © 2020
+              Montage, © {new Date().getFullYear()}
             </span>
           </Fade>
         </div>
