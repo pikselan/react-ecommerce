@@ -2,9 +2,8 @@ import React, { createContext, useReducer } from "react";
 
 const initialState = {
   cart: JSON.parse(localStorage.getItem("itemCart")) || 0,
-  color: "",
+  color: JSON.parse(localStorage.getItem("itemColor")) || "",
   priceItem: 209,
-  priceTotal: 0,
 };
 const store = createContext(initialState);
 const { Provider } = store;

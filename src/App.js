@@ -18,7 +18,8 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("itemCart", JSON.stringify(state.cart));
-  }, [state.cart]);
+    localStorage.setItem("itemColor", JSON.stringify(state.color));
+  }, [state.cart, state.color]);
 
   return (
     <Router>

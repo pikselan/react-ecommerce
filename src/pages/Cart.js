@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Fade from "react-reveal/Fade";
 
 import { store } from "../store";
@@ -11,8 +11,22 @@ import Paypal from "../assets/images/paypal.png";
 
 export default function Cart() {
   const globalState = useContext(store);
-  // const { dispatch } = globalState;
   const state = globalState.state;
+
+  const shippingMethod = (item) => {
+    setShipping(item);
+  };
+
+  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [province, setProvince] = useState("");
+  const [postalCode, setPostalCode] = useState(0);
+  const [country, setCountry] = useState("");
+  const [phone, setPhone] = useState(0);
+  const [shipping, setShipping] = useState(0);
 
   if (state.cart === 0 || state.color === "") {
     return (
@@ -105,7 +119,6 @@ export default function Cart() {
                     </div>
                   </div>
                 </div>
-
                 <h2 className="mt-3 h4 font-weight-bold">Shipping Method</h2>
                 <div className="row">
                   <div className="col-12">
@@ -116,6 +129,7 @@ export default function Cart() {
                         name="shippingMethod"
                         id="dhlExpress"
                         value="DHL Express"
+                        onClick={() => shippingMethod(19.95)}
                       />
                       <label className="form-check-label" htmlFor="dhlExpress">
                         DHL Express ($19.95)
@@ -156,8 +170,7 @@ export default function Cart() {
                     <div className="col-6 d-flex justify-content-end">
                       <span className="font-weight-ligth text-right">
                         ${state.priceItem * state.cart}.00
-                        <br />
-                        $19.95
+                        <br />${shipping}
                       </span>
                     </div>
                   </div>
@@ -166,7 +179,7 @@ export default function Cart() {
                       <span className="text-right h4 mt-3">
                         Total
                         <br />
-                        <b>$228.95 USD</b>
+                        <b>${state.priceItem * state.cart + shipping} USD</b>
                       </span>
                     </div>
                   </div>
