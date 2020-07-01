@@ -9,7 +9,7 @@ import Item from "./pages/Item";
 import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 
-import "./assets/js/index";
+import "bootstrap/js/src/index";
 import "./styles.scss";
 
 function App() {
