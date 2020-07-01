@@ -107,7 +107,11 @@ export default function Item() {
                           <Button
                             type="link"
                             href="/cart"
-                            className="btn-primary font-weight-bold"
+                            className={`btn-primary font-weight-bold ${
+                              state.cart !== 0 && state.color !== ""
+                                ? " "
+                                : " disabled"
+                            }`}
                           >
                             Checkout Now
                           </Button>

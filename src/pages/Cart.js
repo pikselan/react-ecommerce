@@ -11,10 +11,10 @@ import Paypal from "../assets/images/paypal.png";
 
 export default function Cart() {
   const globalState = useContext(store);
-  const { dispatch } = globalState;
+  // const { dispatch } = globalState;
   const state = globalState.state;
 
-  if (state.cart === 0) {
+  if (state.cart === 0 || state.color === "") {
     return (
       <div className="container-fluid p-0" style={{ height: "80vh" }}>
         <Header />
@@ -43,6 +43,9 @@ export default function Cart() {
           <div className="row">
             <Fade bottom delay={400}>
               <div className="form-checkout order-md-1 col-md-8">
+                <Button type="link" className="btn-primary" href="/item">
+                  Back
+                </Button>
                 <h2 className="mt-3 h4 font-weight-bold">
                   Contact Information
                 </h2>
@@ -128,17 +131,17 @@ export default function Cart() {
                   <div className="row">
                     <div className="col-3">
                       <img
-                        src="/assets/images/item-black.jpg"
+                        src={`/assets/images/item-${state.color}.jpg`}
                         alt=""
                         width="100%"
                       />
                     </div>
                     <div className="col-9">
                       <span>
-                        <h5>Montage Bag</h5>
+                        <h5>{`Montage Bag (${state.color})`}</h5>
                         <span className="font-weight-ligth">
-                          QTY: 1 <br />
-                          PriceL $209.00 USD
+                          QTY: {state.cart} <br />
+                          Price: ${state.priceItem}.00 USD /item
                         </span>
                       </span>
                     </div>
@@ -152,7 +155,7 @@ export default function Cart() {
                     </div>
                     <div className="col-6 d-flex justify-content-end">
                       <span className="font-weight-ligth text-right">
-                        $209.00
+                        ${state.priceItem * state.cart}.00
                         <br />
                         $19.95
                       </span>
