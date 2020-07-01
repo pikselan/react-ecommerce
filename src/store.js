@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from "react";
 
 const initialState = {
-  cart: 0,
+  cart: JSON.parse(localStorage.getItem("itemCart")) || 0,
   color: "",
   priceItem: 209,
   priceTotal: 0,

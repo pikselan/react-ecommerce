@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import { store } from "./store";
 
 import Landing from "./pages/Landing";
 import About from "./pages/About";
@@ -11,6 +13,13 @@ import "./assets/js/index";
 import "./styles.scss";
 
 function App() {
+  const globalState = useContext(store);
+  const state = globalState.state;
+
+  useEffect(() => {
+    localStorage.setItem("itemCart", JSON.stringify(state.cart));
+  }, [state.cart]);
+
   return (
     <Router>
       <Switch>
